@@ -1,0 +1,117 @@
+ScreenManager:
+    First:
+    GaloisCalculator:
+
+<First>:
+    name: "first"
+    canvas:
+        Color:
+            rgba: 0.8, 0.9, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    GridLayout:
+        rows: 3
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: "Application of Galois Theory \n for Quadratic and Cubic Polynomials"
+            font_size: 30
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            color: 0,0,0,1
+
+        Label:
+            text: "Musa Ojonugwa James (SCI22MTH019) \nSupervisor: Mr. Emmanuel Akaligwo"
+            font_size: 25
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            color: 0,0,0,1
+
+        Button:
+            text: "Continue"
+            font_size: 30
+            size_hint: 0.3, 0.3
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "calculator"
+
+<GaloisCalculator>:
+    name: "calculator"
+    canvas:
+        Color:
+            rgba: 0.9, 0.95, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    GridLayout:
+        rows: 6
+        cols: 2
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "Enter Coefficients:"
+            font_size: 25
+            color: 0,0,0,1
+
+        TextInput:
+            id: coeff_input
+            multiline: False
+
+        Label:
+            text: "Degree:"
+            font_size: 25
+            color: 0,0,0,1
+
+        Label:
+            id: degree_output
+            text: ""
+            font_size: 25
+            color: 0,0,0,1
+
+        Label:
+            text: "Discriminant:"
+            font_size: 25
+            color: 0,0,0,1
+
+        Label:
+            id: disc_output
+            text: ""
+            font_size: 25
+            color: 0,0,0,1
+
+        Label:
+            text: "Roots:"
+            font_size: 25
+            color: 0,0,0,1
+
+        TextInput:
+            id: roots_output
+            multiline: True
+            readonly: True
+
+        Label:
+            text: "Likely Galois Group:"
+            font_size: 25
+            color: 0,0,0,1
+
+        Label:
+            id: group_output
+            text: ""
+            font_size: 25
+            color: 0,0,0,1
+
+        Button:
+            text: "Compute"
+            font_size: 25
+            on_release: root.compute_galois()
+
+        Button:
+            text: "Clear"
+            font_size: 25
+            on_release: root.clear_fields()
